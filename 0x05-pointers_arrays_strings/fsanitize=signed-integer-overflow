@@ -1,0 +1,19 @@
+#include "main.h"
+#include <unistd.h>
+
+/***
+*This flag helps detect and diagnose potential issues with signed integer overflow, 
+*which can lead to undefined behavior in C and C++ programs.
+*
+*returns (0)
+*/
+
+int main(void)
+{
+	int a = 1000000;
+	int b = a * a; // Potential signed integer overflow
+
+	printf("Result: %d\n", b);
+
+	return (0);
+}
