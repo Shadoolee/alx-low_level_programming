@@ -8,14 +8,14 @@
  */
 size_t list_len(const list_t *h)
 {
-    size_t count = 0; /* Initialize a counter for the nodes */
+	size_t count = 0; /* Initialize a counter for the nodes */
 
-    /* Iterate through the list */
-    while (h != NULL)
-    {
-        h = h->next; /* Move to the next node */
-        count++; /* Increment the node count */
-    }
+	/* Iterate through the list */
+	while (h != NULL)
+	{
+		h = h->next; /* Move to the next node */
+		count++; /* Increment the node count */
+	}
 
-    return (count);
+	return (count);
 }
