@@ -10,16 +10,17 @@
 void free_listint2(listint_t **head)
 
 {
-	listint_t *current = *head; /* Create a temporary pointer to trasverse */
-	listint_t *next;
+	listint_t *temp;
 
-	/* Traverse the linked list and free nodes */
-	while (current != NULL)
+	if (head == NULL)
+		return;
+
+	while (*head)
 	{
-		next = current->next; /* Store the next node's address */
-		free(current); /* Free the current node */
-		current = next; /* Move to the next node */
+		temp = (*head)->next;
+		free(*head);
+		*head = temp;
 	}
 
-	*head = NULL; /* Set the head to NULL */
+	*head = NULL;
 }
