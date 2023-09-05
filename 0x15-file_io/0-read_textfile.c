@@ -11,7 +11,7 @@
  * Return: The actual number of letters read and printed.
  *         If the file cannot be opened or read, return 0.
  *         If filename is NULL, return 0.
- *         If write fails or does not write the expected amount of bytes, return 0.
+ *         If write fails/not write the expected amount of bytes,return 0.
  */
 
 ssize_t read_textfile(const char *filename, size_t letters)
