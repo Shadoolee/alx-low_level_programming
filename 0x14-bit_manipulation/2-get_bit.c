@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * get_bit - Returns the value of a bit at a given index.
+ * get_bit - It returns the value of a bit at a given index.
  * @n: The number from which to extract the bit.
  * @index: The index of the bit to retrieve (starting from 0).
  *
