@@ -7,50 +7,30 @@
 #include <unistd.h>
 
 /**
- * read_textfile - It reads a text file print to STDOUT.
+ * read_textfile- It Read text file print to STDOUT.
  *
- * @filename: The name of the text file to be read.
+ * @filename: text file being read
  *
- * @letters: The number of letters it should read and print.
+ * @letters: number of letters to be read
  *
- * Returns: Upon success, the actual number of letters read and printed.
- *	If the file cannot be opened or read, or if there are errors during
- *	reading or writing, return 0. If filename is NULL, return 0.
- *	If write fails or does not write the expected amount of bytes, return 0.
+ * Return: w- actual number of bytes read and printed
+ *        0 when function fails or filename is NULL.
  */
-
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int file_dsp;
-	ssize_t lenr, lenw;
-	char *buffer;
+	char *buf;
+	ssize_t fd;
+	ssize_t w;
+	ssize_t t;
 
-	if (filename == NULL)
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
 		return (0);
+	buf = malloc(sizeof(char) * letters);
+	t = read(fd, buf, letters);
+	w = write(STDOUT_FILENO, buf, t);
 
-	file_dsp = open(filename, O_RDONLY);
-	if (file_dsp == -1)
-		return (0);
-
-	buffer = malloc(sizeof(char) * letters);
-	if (buffer == NULL)
-	{
-		close(file_dsp);
-		return (0);
-	}
-
-	lenr = read(file_dsp, buffer, letters);
-	close(file_dsp);
-	if (lenr == -1)
-	{
-		free(buffer);
-		return (0);
-	}
-
-	lenw = write(STDOUT_FILENO, buffer, lenr);
-	free(buffer);
-
-	if (lenr != lenw)
-		return (0);
-	return (lenw);
+	free(buf);
+	close(fd);
+	return (w);
 }
