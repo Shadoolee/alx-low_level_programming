@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 
+def is_palindrome(number):
+    str_number = str(number)
+    return str_number == str_number[::-1]
+
 largest_palindrome = 0
 
 for i in range(100, 1000):
