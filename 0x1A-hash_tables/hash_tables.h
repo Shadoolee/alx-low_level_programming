@@ -20,8 +20,8 @@ typedef struct hash_node_s
 } hash_node_t;
 
 /**
- * struct has_table_s - Hash table data strcuture
- * @size: The size of the array
+ * struct hash_table_s - Hash table data strcuture
+ * @size: The size of the airray
  * @array: An array of size @size
  * Each cell of this array is a pointer to the first node of a linked list,
  * because we want our HashTable to use a Chaining collision handling
@@ -82,4 +82,4 @@ void shash_table_print(const shash_table_t *ht);
 void shash_table_print_rev(const shash_table_t *ht);
 void shash_table_delete(shash_table_t *ht);
 
-#endif /* HASH_TABLES_H */ 
+#endif /* HASH_TABLES_H */
